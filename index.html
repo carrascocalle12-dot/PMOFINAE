@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IngeniaPMO | Consultoría en Gestión de Proyectos y Procesos</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-emerald-700 selection:text-white">
+
+    <!-- 1. BARRA DE NAVEGACIÓN (HEADER) -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Marca -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 bg-emerald-700 rounded-xl flex items-center justify-center text-white font-extrabold text-lg shadow-sm group-hover:bg-emerald-800 transition">
+                        IP
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:gap-2">
+                        <span class="text-xl font-extrabold tracking-tight text-slate-900">Ingenia<span class="text-emerald-700">PMO</span></span>
+                        <span class="hidden xl:inline-block text-xs text-slate-400 font-normal">|</span>
+                        <span class="text-[11px] sm:text-xs font-medium text-slate-500">Consultoría en Gestión de Proyectos y Procesos</span>
+                    </div>
+                </a>
+
+                <!-- Menú Escritorio -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600">
+                    <a href="#problema" class="hover:text-emerald-700 transition">El Problema</a>
+                    <a href="#propuesta" class="hover:text-emerald-700 transition">Nuestra Propuesta</a>
+                    <a href="#servicios" class="hover:text-emerald-700 transition">Servicios</a>
+                    <a href="#beneficios" class="hover:text-emerald-700 transition">Beneficios</a>
+                </nav>
+
+                <!-- Botón derecho (CTA rápido) -->
+                <div class="hidden md:flex items-center">
+                    <a href="#cta-form" class="bg-emerald-700 hover:bg-emerald-800 text-white text-sm font-semibold px-5 py-2.5 rounded-2xl shadow-sm transition duration-200 flex items-center gap-2">
+                        <span>Agendar Diagnóstico</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Botón Menú Móvil -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" class="text-slate-600 hover:text-emerald-700 focus:outline-none p-2 rounded-xl border border-slate-200" aria-label="Abrir menú">
+                        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3 shadow-sm">
+            <a href="#problema" class="mobile-link block px-3 py-2 rounded-xl text-base font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">El Problema</a>
+            <a href="#propuesta" class="mobile-link block px-3 py-2 rounded-xl text-base font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">Nuestra Propuesta</a>
+            <a href="#servicios" class="mobile-link block px-3 py-2 rounded-xl text-base font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">Servicios</a>
+            <a href="#beneficios" class="mobile-link block px-3 py-2 rounded-xl text-base font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">Beneficios</a>
+            <div class="pt-2">
+                <a href="#cta-form" class="mobile-link block w-full text-center bg-emerald-700 hover:bg-emerald-800 text-white font-semibold px-5 py-3 rounded-2xl shadow-sm">
+                    Agendar Diagnóstico
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. SECCIÓN 1: HERO (ENCABEZADO PRINCIPAL) -->
+    <section class="relative bg-white border-b border-slate-200/80 py-14 lg:py-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+                
+                <!-- Columna Izquierda: Copywriting y CTA -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold px-3.5 py-1.5 rounded-full tracking-wide uppercase">
+                        <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+                        PARA EMPRESAS MEDIANAS, FUNDACIONES CORPORATIVAS Y ÁREAS DE CAPACITACIÓN / RSC
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-slate-900 tracking-tight leading-[1.18]">
+                        Deja de improvisar en tus proyectos educativos y de responsabilidad social. Estructuramos tu oficina de proyectos (<span class="text-emerald-700">PMO</span>) para lograr impacto medible y cero sobrecostos.
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
+                        Aplicamos ingeniería de procesos y metodologías ágiles (Scrum) para centralizar el conocimiento de tu equipo, estandarizar la creación de materiales y medir el retorno real de cada iniciativa.
+                    </p>
+
+                    <div class="pt-2">
+                        <a href="#cta-form" onclick="trackCTAClick('Hero CTA')" class="inline-flex items-center justify-center bg-emerald-700 hover:bg-emerald-800 text-white text-base sm:text-lg font-bold px-7 py-4 rounded-2xl shadow-sm hover:shadow transition duration-200 w-full sm:w-auto text-center">
+                            <span>👉 Solicitar Diagnóstico Gratuito de 15 min + Kit de Evaluación</span>
+                        </a>
+                        <p class="text-xs sm:text-sm text-slate-500 mt-3 flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Incluye acceso sin costo a nuestra plantilla matriz de evaluación de proyectos.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Contenedor Visual Dashboard PMO -->
+                <div class="lg:col-span-5">
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-sm relative">
+                        <!-- Cabecera del Dashboard -->
+                        <div class="flex items-center justify-between border-b border-slate-200 pb-4 mb-5">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-slate-300"></span>
+                                <span class="w-3 h-3 rounded-full bg-slate-300"></span>
+                                <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                                <span class="text-xs font-semibold text-slate-700 ml-2">Dashboard PMO • Control de Impacto</span>
+                            </div>
+                            <span class="bg-emerald-50 text-emerald-700 border border-emerald-200 text-[11px] font-bold px-2.5 py-0.5 rounded-full">
+                                Sprint Activo
+                            </span>
+                        </div>
+
+                        <!-- Tarjetas Superiores de KPIs -->
+                        <div class="grid grid-cols-2 gap-4 mb-5">
+                            <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-xs font-medium text-slate-500">Eficiencia en Planificación</span>
+                                    <span class="w-6 h-6 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="text-2xl font-extrabold text-slate-900">+35%</div>
+                                <div class="text-[11px] font-medium text-emerald-600 mt-1">Ahorro de horas operativas</div>
+                            </div>
+
+                            <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-xs font-medium text-slate-500">Cumplimiento & ROI</span>
+                                    <span class="w-6 h-6 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="text-2xl font-extrabold text-slate-900">98.4%</div>
+                                <div class="text-[11px] font-medium text-emerald-600 mt-1">Proyectos sin sobrecostos</div>
+                            </div>
+                        </div>
+
+                        <!-- Gráfico Conceptual de Crecimiento (Barras + Línea Verde) -->
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm mb-5">
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <h3 class="text-xs font-bold text-slate-800 uppercase tracking-wider">Evolución de Madurez Operativa (6 Semanas)</h3>
+                                    <p class="text-[11px] text-slate-500">Estandarización de procesos vs. Retorno de inversión</p>
+                                </div>
+                                <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-lg flex items-center gap-1">
+                                    ▲ Tendencia Positiva
+                                </span>
+                            </div>
+
+                            <!-- Contenedor de Gráfico -->
+                            <div class="relative h-36 flex items-end justify-between gap-2 sm:gap-3 pt-6 px-2 border-b border-slate-100">
+                                <!-- Línea SVG de tendencia superpuesta -->
+                                <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 200 100">
+                                    <polyline fill="none" stroke="#047857" stroke-width="2.5" stroke-dasharray="3,3" points="15,78 50,65 85,50 120,38 155,24 188,12" />
+                                    <circle cx="188" cy="12" r="4" fill="#047857" />
+                                </svg>
+
+                                <div class="flex flex-col items-center flex-1">
+                                    <div class="w-full bg-emerald-100 rounded-t-lg h-10 transition-all"></div>
+                                    <span class="text-[10px] font-medium text-slate-400 mt-2">Sem 1</span>
+                                </div>
+                                <div class="flex flex-col items-center flex-1">
+                                    <div class="w-full bg-emerald-200 rounded-t-lg h-14 transition-all"></div>
+                                    <span class="text-[10px] font-medium text-slate-400 mt-2">Sem 2</span>
+                                </div>
+                                <div class="flex flex-col items-center flex-1">
+                                    <div class="w-full bg-emerald-300 rounded-t-lg h-20 transition-all"></div>
+                                    <span class="text-[10px] font-medium text-slate-400 mt-2">Sem 3</span>
+                                </div>
+                                <div class="flex flex-col items-center flex-1">
+                                    <div class="w-full bg-emerald-400 rounded-t-lg h-24 transition-all"></div>
+                                    <span class="text-[10px] font-medium text-slate-400 mt-2">Sem 4</span>
+                                </div>
+                                <div class="flex flex-col items-center flex-1">
+                                    <div class="w-full bg-emerald-600 rounded-t-lg h-28 transition-all"></div>
+                                    <span class="text-[10px] font-medium text-slate-400 mt-2">Sem 5</span>
+                                </div>
+                                <div class="flex flex-col items-center flex-1">
+                                    <div class="w-full bg-emerald-700 rounded-t-lg h-32 shadow-sm transition-all"></div>
+                                    <span class="text-[10px] font-bold text-emerald-700 mt-2">Sem 6</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Módulos Activos del Sistema PMO -->
+                        <div class="space-y-2.5">
+                            <div class="bg-emerald-50/70 border border-emerald-200/80 rounded-xl px-4 py-2.5 flex items-center justify-between">
+                                <span class="text-xs font-semibold text-slate-800">📁 Repositorio Digital & Manuales</span>
+                                <span class="text-[11px] font-bold text-emerald-700">100% Centralizado</span>
+                            </div>
+                            <div class="bg-emerald-50/70 border border-emerald-200/80 rounded-xl px-4 py-2.5 flex items-center justify-between">
+                                <span class="text-xs font-semibold text-slate-800">📊 Matriz de Evaluación de Impacto</span>
+                                <span class="text-[11px] font-bold text-emerald-700">KPIs en Tiempo Real</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SECCIÓN 2: EL PROBLEMA (EMPATÍA CON EL DOLOR) -->
+    <section id="problema" class="py-16 lg:py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center mb-14">
+                <span class="text-xs font-bold uppercase tracking-widest text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
+                    Diagnóstico Operativo
+                </span>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mt-4 mb-4 leading-tight">
+                    ¿Tu equipo invierte cientos de horas en talleres y proyectos, pero sientes que siempre empiezan desde cero?
+                </h2>
+                <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
+                    En la mayoría de las empresas medianas, las áreas de formación interna, sostenibilidad y proyectos sociales crecen con entusiasmo, pero sin una arquitectura operativa clara. Esto genera tres grandes fugas de recursos:
+                </p>
+            </div>
+
+            <!-- Layout de 3 Tarjetas -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Tarjeta 1 -->
+                <div class="bg-white rounded-2xl p-7 border border-slate-200/90 shadow-sm hover:border-emerald-300 transition duration-200 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center mb-5 border border-slate-200">
+                            <!-- Icono sutil de fuga/alerta de archivos -->
+                            <svg class="w-6 h-6 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-3">
+                            Pérdida de Conocimiento Institucional
+                        </h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Los materiales, dinámicas y aprendizajes quedan dispersos en correos o carpetas personales. Si alguien rota del puesto, el conocimiento desaparece.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400">
+                        <span>Fuga #01</span>
+                        <span>Activo intelectual en riesgo</span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2 -->
+                <div class="bg-white rounded-2xl p-7 border border-slate-200/90 shadow-sm hover:border-emerald-300 transition duration-200 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center mb-5 border border-slate-200">
+                            <!-- Icono sutil de reloj/retraso -->
+                            <svg class="w-6 h-6 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-3">
+                            Retrasos y Reprocesos Constantes
+                        </h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Sin manuales ni guías operativas estandarizadas, diseñar cada nuevo programa o taller toma el doble de tiempo y presupuesto del previsto.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400">
+                        <span>Fuga #02</span>
+                        <span>Sobrecosto en horas-hombre</span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3 -->
+                <div class="bg-white rounded-2xl p-7 border border-slate-200/90 shadow-sm hover:border-emerald-300 transition duration-200 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center mb-5 border border-slate-200">
+                            <!-- Icono sutil de métrica ciega -->
+                            <svg class="w-6 h-6 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-3">
+                            Ceguera de Impacto
+                        </h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Al finalizar el trimestre, resulta difícil demostrar a la gerencia general —con datos duros y métricas claras— el impacto real de las actividades ejecutadas.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400">
+                        <span>Fuga #03</span>
+                        <span>Baja visibilidad directiva</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SECCIÓN 3: NUESTRA PROPUESTA DE VALOR Y SERVICIOS -->
+    <section id="propuesta" class="py-16 lg:py-24 bg-white border-y border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center mb-14">
+                <span class="text-xs font-bold uppercase tracking-widest text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
+                    Nuestra Propuesta de Valor
+                </span>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mt-4 mb-4 leading-tight">
+                    Ingeniería aplicada a la gestión de tus proyectos: Del caos operativo a una PMO Ágil.
+                </h2>
+                <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
+                    Diseñamos e implementamos en 6 semanas la infraestructura organizacional que tu área necesita para escalar con orden, transparencia y agilidad.
+                </p>
+            </div>
+
+            <!-- Ancla de Servicios y Cuadrícula (Grid) de 4 Servicios -->
+            <div id="servicios" class="grid md:grid-cols-2 gap-8 scroll-mt-24">
+                
+                <!-- Servicio 1 -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:bg-emerald-50/40 hover:border-emerald-300 transition duration-200">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center text-xl mb-5 shadow-sm">
+                        📁
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">
+                        Arquitectura de Repositorios Digitales (Gestión del Conocimiento)
+                    </h3>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        Diseñamos e implementamos una central digital unificada donde cada guía, material didáctico y entregable queda clasificado, seguro y accesible en segundos para todo el equipo.
+                    </p>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:bg-emerald-50/40 hover:border-emerald-300 transition duration-200">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center text-xl mb-5 shadow-sm">
+                        ⚙️
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">
+                        Estandarización y Manuales Operativos
+                    </h3>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        Creamos protocolos paso a paso y plantillas maestras para el diseño de talleres, materiales y despliegues en campo, eliminando la improvisación y reduciendo tiempos de preparación.
+                    </p>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:bg-emerald-50/40 hover:border-emerald-300 transition duration-200">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center text-xl mb-5 shadow-sm">
+                        📊
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">
+                        Sistemas de Evaluación y Medición de Impacto
+                    </h3>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        Implementamos kits de evaluación e indicadores clave (KPIs) para medir la satisfacción, el aprendizaje y el retorno de inversión de cada proyecto ante el directorio.
+                    </p>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:bg-emerald-50/40 hover:border-emerald-300 transition duration-200">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center text-xl mb-5 shadow-sm">
+                        🔄
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">
+                        Acompañamiento Ágil con Scrum
+                    </h3>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        Entrenamos a tu equipo en el marco de trabajo Scrum (Sprints, reuniones de seguimiento y tableros visuales) para asegurar entregas a tiempo y máxima colaboración.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. SECCIÓN 4: PRINCIPALES BENEFICIOS Y 6. SECCIÓN 5: LLAMADO A LA ACCIÓN (CTA) -->
+    <section id="beneficios" class="py-16 lg:py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Columna Izquierda: Principales Beneficios -->
+                <div class="lg:col-span-6 space-y-8">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
+                            Impacto en el Negocio
+                        </span>
+                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mt-4 leading-tight">
+                            ¿Qué logra tu organización al implementar nuestra PMO especializada?
+                        </h2>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Beneficio 1 -->
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-start gap-4">
+                            <span class="w-8 h-8 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 shrink-0 mt-0.5">
+                                ✅
+                            </span>
+                            <div>
+                                <h3 class="text-base font-bold text-slate-900">Ahorro de hasta un 35% en tiempos de planificación</h3>
+                                <p class="text-sm text-slate-600 mt-1">Gracias a procesos estandarizados, manuales claros y recursos reutilizables listos para ejecutar.</p>
+                            </div>
+                        </div>
+
+                        <!-- Beneficio 2 -->
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-start gap-4">
+                            <span class="w-8 h-8 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 shrink-0 mt-0.5">
+                                ✅
+                            </span>
+                            <div>
+                                <h3 class="text-base font-bold text-slate-900">Continuidad Operativa Garantizada</h3>
+                                <p class="text-sm text-slate-600 mt-1">El activo intelectual pertenece a la empresa en un repositorio estructurado, no a la memoria individual de cada colaborador.</p>
+                            </div>
+                        </div>
+
+                        <!-- Beneficio 3 -->
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-start gap-4">
+                            <span class="w-8 h-8 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 shrink-0 mt-0.5">
+                                ✅
+                            </span>
+                            <div>
+                                <h3 class="text-base font-bold text-slate-900">Reportes Ejecutivos Basados en Evidencia</h3>
+                                <p class="text-sm text-slate-600 mt-1">Presenta a tu directorio resultados cuantificables con métricas de desempeño y cumplimiento claras.</p>
+                            </div>
+                        </div>
+
+                        <!-- Beneficio 4 -->
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-start gap-4">
+                            <span class="w-8 h-8 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 shrink-0 mt-0.5">
+                                ✅
+                            </span>
+                            <div>
+                                <h3 class="text-base font-bold text-slate-900">Equipos Alineados y Sin Sobrecarga</h3>
+                                <p class="text-sm text-slate-600 mt-1">Claridad absoluta sobre quién hace qué, cuándo se entrega y qué cuellos de botella deben resolverse en cada Sprint.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Sección 5 - Llamado a la Acción (CTA Principal y Formulario B2B) -->
+                <div id="cta-form" class="lg:col-span-6 scroll-mt-24">
+                    <div class="bg-white rounded-2xl p-7 sm:p-9 border-2 border-emerald-700/20 shadow-sm relative">
+                        
+                        <div class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full mb-4">
+                            <span>Diagnóstico B2B + Recurso Descargable</span>
+                        </div>
+
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3 leading-snug">
+                            Da el primer paso hacia una gestión de proyectos predecible y medible.
+                        </h2>
+
+                        <p class="text-sm sm:text-base text-slate-600 mb-6 leading-relaxed">
+                            Agenda hoy un <strong class="text-slate-900">Diagnóstico Operativo sin costo (15 minutos)</strong> para evaluar el nivel de madurez de tus proyectos. Al registrarte, recibirás inmediatamente en tu correo nuestro <strong class="text-emerald-700">Kit de Evaluación de Proyectos (Plantilla Editable)</strong>.
+                        </p>
+
+                        <!-- Formulario Interactivo -->
+                        <form id="leadForm" class="space-y-4">
+                            <div>
+                                <label for="nombre" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                                    Nombre y Apellido *
+                                </label>
+                                <input type="text" id="nombre" name="nombre" required placeholder="Ej. Mariana Torres"
+                                    class="w-full px-4 py-3 rounded-2xl border border-slate-300 bg-slate-50/50 text-slate-900 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600 transition">
+                            </div>
+
+                            <div>
+                                <label for="correo" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                                    Correo Corporativo *
+                                </label>
+                                <input type="email" id="correo" name="correo" required placeholder="mtorres@tuempresa.com"
+                                    class="w-full px-4 py-3 rounded-2xl border border-slate-300 bg-slate-50/50 text-slate-900 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600 transition">
+                            </div>
+
+                            <div>
+                                <label for="empresa" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                                    Nombre de la Empresa *
+                                </label>
+                                <input type="text" id="empresa" name="empresa" required placeholder="Ej. Grupo Industrial del Norte S.A.C."
+                                    class="w-full px-4 py-3 rounded-2xl border border-slate-300 bg-slate-50/50 text-slate-900 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600 transition">
+                            </div>
+
+                            <div>
+                                <label for="reto" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                                    ¿Cuál es tu mayor reto hoy? *
+                                </label>
+                                <select id="reto" name="reto" required
+                                    class="w-full px-4 py-3 rounded-2xl border border-slate-300 bg-slate-50/50 text-slate-900 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600 transition">
+                                    <option value="" disabled selected>Selecciona el desafío principal de tu área...</option>
+                                    <option value="Desorden en archivos">Desorden en archivos</option>
+                                    <option value="Falta de estandarización">Falta de estandarización</option>
+                                    <option value="Medición de resultados">Medición de resultados</option>
+                                    <option value="Retrasos en entregas">Retrasos en entregas</option>
+                                </select>
+                            </div>
+
+                            <div class="pt-2">
+                                <button type="submit" id="submitBtn"
+                                    class="w-full bg-emerald-700 hover:bg-emerald-800 active:bg-emerald-900 text-white font-bold text-base py-4 px-6 rounded-2xl shadow-sm hover:shadow transition duration-200 flex items-center justify-center gap-2">
+                                    <span>🟠 Agendar mi Diagnóstico y Descargar Kit Gratis</span>
+                                </button>
+                            </div>
+
+                            <p class="text-[11px] text-center text-slate-400 pt-1">
+                                🔒 Tus datos están protegidos. Cero spam, exclusivo para uso consultivo B2B.
+                            </p>
+                        </form>
+
+                        <!-- Estado de Éxito Oculto (Se activa con JS al enviar el formulario) -->
+                        <div id="successState" class="hidden bg-emerald-50 border border-emerald-200 rounded-2xl p-6 text-center space-y-4 mt-4">
+                            <div class="w-12 h-12 bg-emerald-700 text-white rounded-2xl flex items-center justify-center mx-auto text-xl font-bold shadow-sm">
+                                ✓
+                            </div>
+                            <h3 class="text-xl font-extrabold text-slate-900" id="successTitle">
+                                ¡Diagnóstico Solicitado con Éxito!
+                            </h3>
+                            <p class="text-sm text-slate-600 leading-relaxed" id="successMessage">
+                                Hemos enviado el <strong>Kit de Evaluación de Proyectos</strong> a tu correo corporativo.
+                            </p>
+                            <div class="pt-2">
+                                <button type="button" onclick="resetForm()" class="text-xs font-bold text-emerald-700 hover:text-emerald-900 underline">
+                                    Registrar otra solicitud
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CORPORATIVO CON PANEL DE MÉTRICAS LEAN STARTUP -->
+    <footer class="bg-white border-t border-slate-200 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+            <div class="flex items-center gap-2">
+                <span class="font-bold text-slate-900">Ingenia<span class="text-emerald-700">PMO</span></span>
+                <span>© 2026 Consultoría en Gestión de Proyectos y Procesos.</span>
+            </div>
+            <div class="flex items-center gap-4 bg-slate-50 border border-slate-200 px-3.5 py-2 rounded-xl">
+                <span class="font-semibold text-slate-700">Métricas MVP (Lean Startup):</span>
+                <span>Clics en CTA: <strong id="kpi-ctr" class="text-emerald-700">0</strong></span>
+                <span>•</span>
+                <span>Leads Registrados: <strong id="kpi-leads" class="text-emerald-700">0</strong></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT: INTERACTIVIDAD Y VALIDACIÓN -->
+    <script>
+        // 1. Control del Menú Móvil Responsivo
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconOpen = document.getElementById('menu-icon-open');
+        const iconClose = document.getElementById('menu-icon-close');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            iconOpen.classList.toggle('hidden');
+            iconClose.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                iconOpen.classList.remove('hidden');
+                iconClose.classList.add('hidden');
+            });
+        });
+
+        // 2. Contadores en vivo para los 2 Indicadores Lean Startup
+        let ctaClicks = 0;
+        let leadsConverted = 0;
+
+        function trackCTAClick(origin) {
+            ctaClicks++;
+            document.getElementById('kpi-ctr').textContent = ctaClicks;
+            console.log(`[Lean Startup KPI] Clic registrado en: ${origin}. Total clics: ${ctaClicks}`);
+        }
+
+        // 3. Manejo del Formulario B2B y Simulación de Conversión
+        const leadForm = document.getElementById('leadForm');
+        const successState = document.getElementById('successState');
+        const successTitle = document.getElementById('successTitle');
+        const successMessage = document.getElementById('successMessage');
+
+        leadForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const nombre = document.getElementById('nombre').value.trim();
+            const correo = document.getElementById('correo').value.trim();
+            const empresa = document.getElementById('empresa').value.trim();
+            const reto = document.getElementById('reto').value;
+
+            // Actualizar KPIs de validación
+            ctaClicks++;
+            leadsConverted++;
+            document.getElementById('kpi-ctr').textContent = ctaClicks;
+            document.getElementById('kpi-leads').textContent = leadsConverted;
+
+            // Personalizar mensaje de confirmación según el reto seleccionado
+            successTitle.textContent = `¡Gracias, ${nombre}! Solicitud confirmada.`;
+            successMessage.innerHTML = `Hemos agendado la solicitud para <strong>${empresa}</strong> enfocada en resolver tu reto principal: <span class="text-emerald-700 font-semibold">"${reto}"</span>.<br><br>Enviamos el <strong>Kit de Evaluación de Proyectos (Plantilla Editable)</strong> y el enlace de calendario a <strong>${correo}</strong>.`;
+
+            // Mostrar alerta interactiva y cambiar al estado de éxito visual
+            alert(`✅ [Diagnóstico Registrado - IngeniaPMO]\n\nCliente: ${nombre} (${empresa})\nReto prioritario: ${reto}\n\nEl Kit de Evaluación de Proyectos ha sido enviado a ${correo}.`);
+
+            leadForm.classList.add('hidden');
+            successState.classList.remove('hidden');
+        });
+
+        function resetForm() {
+            leadForm.reset();
+            successState.classList.add('hidden');
+            leadForm.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
